@@ -27,16 +27,11 @@ puts lines.sum {|line|
 
 # 10b
 
-scores = []
-lines.each {|line|
+scores = lines.filter_map {|line|
   validate(line) {|char, stack|
-    unless char then
-      total = 0
-      while not stack.empty? do
-        total = total * 5 + CLOSERS.index(stack.pop) + 1
-      end
-      scores <<= total
-    end
+    # Completion points are 1 + the char's index in CLOSERS
+    char ? nil : stack.reverse.map {|char| CLOSERS.index(char) + 1}.join.to_i(5)
   }
 }
+
 puts scores.sort[scores.length / 2]

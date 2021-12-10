@@ -22,8 +22,8 @@ for i in 0...bits do
   end
 end
 
-oxy = eval "0b" + oxy_lines[0].join
-co2 = eval "0b" + co2_lines[0].join
+oxy = oxy_lines[0].join.to_i(2)
+co2 = co2_lines[0].join.to_i(2)
 
 puts "oxy: #{oxy} #{oxy_lines}"
 puts "co2: #{co2} #{co2_lines}"

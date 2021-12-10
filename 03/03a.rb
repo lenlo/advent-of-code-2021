@@ -11,11 +11,11 @@ gamma = sum.map {|x| x > lines / 2 ? 1 : 0}
 epsilon = gamma.map {|x| 1 - x}
 
 print "gamma: #{gamma}"
-gamma = eval "0b" + gamma.join.to_s
+gamma =  gamma.join.to_i(2)
 puts " (#{gamma})"
 
 print "epsilon: #{epsilon}"
-epsilon = eval "0b" + epsilon.join.to_s
+epsilon = epsilon.join.to_i(2)
 puts " (#{epsilon})"
 
 puts gamma * epsilon
